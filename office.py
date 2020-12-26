@@ -3,11 +3,10 @@ createPDF()
 txt to pdf(txt)
 docx to pdf(docx)
 docx to txt(docx)
-
 pdf to docx(pdf)
-pdf to ppt(pdf)
-pdf to txt(txt)
+
 ppt to pdf(ppt)
+pdf to txt(txt)
 csv to xlsx(csv)
 xlsx to pdf(xlsx)
 
@@ -86,6 +85,24 @@ def pdfToDocx(pdfFileName):
     # add the .pdf extension to the pdfFileName. 
     parse(pdfFileName, docxFileName, start = 0, end = 1)
     # use the parse function to convert pdf to docx 
+
+def pptToPDF(pptFileName, pdfFileName, formatType = 32):
+    import comtypes.client
+    # comtypes is available only for windows 
+    powerpoint = comtypes.client.CreateObject("Powerpoint.Application")
+    powerpoint.Visible = 1
+
+    if pdfFileName[-3:] != 'pdf':
+        pdfFileName = pdfFileName + ".pdf"
+    deck = powerpoint.Presentations.Open(pptFileName)
+    deck.SaveAs(pdfFileName, formatType) 
+    # formatType = 32 for ppt to pdf
+    deck.Close()
+    powerpoint.Quit()
+
+
+
+
 
 
 
