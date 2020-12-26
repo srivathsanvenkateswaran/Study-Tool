@@ -6,9 +6,9 @@ docx to txt(docx)
 pdf to docx(pdf)
 ppt to pdf(ppt)
 pdf to txt(txt)
+xlsx to pdf(xlsx)
 
 csv to xlsx(csv)
-xlsx to pdf(xlsx)
 
 CompressToZip(folder)
 unZip(zipFile)
@@ -131,9 +131,22 @@ def excelToPDF(excelFileName):
     import pdfkit
 
     excelFileObject = pandas.read_excel(f"{excelFileName}.xlsx")
+    # creating an excel file object 
     excelFileObject.to_html(f"{excelFileName}.html")
+    # converting the excel file into an html file 
     pdfkit.from_file(f"{excelFileName}.html", f"{excelFileName}.pdf")
+    # converting html file to pdf 
 
-
+def unZipFile(zipFileName):
+    from zipfile import ZipFile
+    with ZipFile(file_name, 'r') as zip: 
+        # opening the zip file in read mode 
+        zip.printdir() 
+        # printing all the contents of the zip file 
+    
+        print('Extracting all the files now...') 
+        zip.extractall() 
+        # extracting all the files 
+        print('Done!') 
 
 
