@@ -7,11 +7,11 @@ pdf to docx(pdf)
 ppt to pdf(ppt)
 pdf to txt(txt)
 xlsx to pdf(xlsx)
+unZip(zipFile)
+CompressToZip(folder)
 
 csv to xlsx(csv)
 
-CompressToZip(folder)
-unZip(zipFile)
 
 imageView(img)
 imageResize(width, height)
@@ -149,10 +149,14 @@ def unZipFile(zipFileName):
         # extracting all the files 
         print('Done!') 
 
-def CompressToZip(folderName):
+def compressToZip(folderName):
     from zipfile import ZipFile
     with ZipFile(f'{folderName}.zip', mode='w'):
         ZipFile.write(folderName)
+
+def openImage(imageName):
+    from PIL import Image
+    currentImage = Image.open(imageName)
 
 
 
