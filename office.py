@@ -54,3 +54,20 @@ def txtToPDF(txtFileName):
     # read all the text in the file and add it in the pdf  
     pdf.output(f"{txtFileName}.pdf")
     # output the PDF with the same name and .pdf extension 
+
+def docxToPDF(docxFileName):
+    from docx2pdf import convert
+    if '/' in docxFileName:
+        convert(f"{docxFileName}")
+        # if the given name is a folder name, then it would contain a /. Hence, we use the convert method used for folder. 
+        # this function will convert all the docx files inside the folder into PDF and store them again inside the same folder. 
+    else:
+        convert(f"{docxFileName}.docx", f"{docxFileName}.pdf")
+        # if the given name is a file name, then it will not contain a / and hence, we use the convert method used for files. 
+
+
+
+
+
+
+
