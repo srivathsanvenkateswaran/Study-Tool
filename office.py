@@ -9,11 +9,11 @@ pdf to txt(txt)
 xlsx to pdf(xlsx)
 unZip(zipFile)
 CompressToZip(folder)
+imageView(img)
 
 csv to xlsx(csv)
 
 
-imageView(img)
 imageResize(width, height)
 compressImage(img)
 
@@ -157,11 +157,13 @@ def compressToZip(folderName):
 def openImage(imageName):
     from PIL import Image
     currentImage = Image.open(imageName)
+    currentImage.show()
 
+def compressImage(imageName):
+    from PIL import Image
+    currentImage = Image.open(imageName)
+    # opening the Image file 
+    currentImage.save("Compressed_"+imageName, quality = 5)
+    # compressing the image file 
 
-
-
-
-
-
-
+# WORK ON IMAGE FORMATS 
