@@ -2,8 +2,8 @@
 createPDF()
 txt to pdf(txt)
 docx to pdf(docx)
-
 docx to txt(docx)
+
 pdf to docx(pdf)
 pdf to ppt(pdf)
 pdf to txt(txt)
@@ -68,11 +68,24 @@ def docxToPDF(docxFileName):
 
 def docxToTxt(docxFileName):
     import docx2txt
+    # importing docx2txt module 
     textInsideDocx = docx2txt.process(f"{docxFileName}.docx")
+    # process and save the text inside the docx file inside a variable. 
 
     with open(f"{docxFileName}.txt", w) as txtFile:
+        # create a txt file with the same name of the docx file 
         print(textInsideDocx, file=txtFile)
+        # add the text inside the created txt file 
 
+def pdfToDocx(pdfFileName):
+    from pdf2docx import parse
+    # import the parse function from pdf2docx 
+    docxFileName = pdfFileName + ".docx"
+    # save the docx file name in a variable
+    pdfFileName = pdfFileName + ".pdf"
+    # add the .pdf extension to the pdfFileName. 
+    parse(pdfFileName, docxFileName, start = 0, end = 1)
+    # use the parse function to convert pdf to docx 
 
 
 
