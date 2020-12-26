@@ -1,8 +1,9 @@
 '''
 createPDF()
-docx to pdf(docx)
-docx to txt(docx)
 txt to pdf(txt)
+docx to pdf(docx)
+
+docx to txt(docx)
 pdf to docx(pdf)
 pdf to ppt(pdf)
 pdf to txt(txt)
@@ -65,7 +66,12 @@ def docxToPDF(docxFileName):
         convert(f"{docxFileName}.docx", f"{docxFileName}.pdf")
         # if the given name is a file name, then it will not contain a / and hence, we use the convert method used for files. 
 
+def docxToTxt(docxFileName):
+    import docx2txt
+    textInsideDocx = docx2txt.process(f"{docxFileName}.docx")
 
+    with open(f"{docxFileName}.txt", w) as txtFile:
+        print(textInsideDocx, file=txtFile)
 
 
 
