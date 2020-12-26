@@ -149,4 +149,15 @@ def unZipFile(zipFileName):
         # extracting all the files 
         print('Done!') 
 
+def CompressToZip(folderName):
+    from zipfile import ZipFile
+    with ZipFile(f'{folderName}.zip', mode='w'):
+        ZipFile.write(folderName)
+
+
+
+
+
+
+
 
