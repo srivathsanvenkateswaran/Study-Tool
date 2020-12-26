@@ -4,8 +4,8 @@ txt to pdf(txt)
 docx to pdf(docx)
 docx to txt(docx)
 pdf to docx(pdf)
-
 ppt to pdf(ppt)
+
 pdf to txt(txt)
 csv to xlsx(csv)
 xlsx to pdf(xlsx)
@@ -71,7 +71,7 @@ def docxToTxt(docxFileName):
     textInsideDocx = docx2txt.process(f"{docxFileName}.docx")
     # process and save the text inside the docx file inside a variable. 
 
-    with open(f"{docxFileName}.txt", w) as txtFile:
+    with open(f"{docxFileName}.txt", 'w') as txtFile:
         # create a txt file with the same name of the docx file 
         print(textInsideDocx, file=txtFile)
         # add the text inside the created txt file 
@@ -100,7 +100,27 @@ def pptToPDF(pptFileName, pdfFileName, formatType = 32):
     deck.Close()
     powerpoint.Quit()
 
-
+def pdfToTxt(pdfFileName):
+    import PyPDF2
+    # import the PyPDF2 module 
+    pdfFileObject = open(f'{pdfFileName}.pdf', 'rb')
+    # opening a PDF File Object 
+    pdfReader = PyPDF2.PdfFileReader(pdfFileObject)
+    # initiating a PDF Reader 
+    numberOFPagesInPDF = pdfReader.numPages
+    # gettting the Number of Pages in the PDF 
+    with open(f"{pdfFileName}.txt", 'a') as txtFile:
+        # creating a new txt file 
+        for i in range(0, numberOFPagesInPDF-1):
+            currentPageObj = pdfReader.getPage(i)
+            # creating a PDF Page object 
+            textInPage = currentPageObj.extractText()
+            # extracting the text from the current PDF Page Object 
+            txtFile.write(textInPage)
+            # appending the text in text file 
+    pdfFileObject.close()
+    # closing the PDF File object 
+        
 
 
 
