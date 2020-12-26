@@ -5,8 +5,8 @@ docx to pdf(docx)
 docx to txt(docx)
 pdf to docx(pdf)
 ppt to pdf(ppt)
-
 pdf to txt(txt)
+
 csv to xlsx(csv)
 xlsx to pdf(xlsx)
 
@@ -121,8 +121,18 @@ def pdfToTxt(pdfFileName):
     pdfFileObject.close()
     # closing the PDF File object 
         
+def createExcelFile(excelFileName): # Incomplete 
+    import openpyxl
+    currentWorkbook = openpyxl.Workbook()
+    currentWorkSheet = currentWorkbook.active()
 
+def excelToPDF(excelFileName):
+    import pandas 
+    import pdfkit
 
+    excelFileObject = pandas.read_excel(f"{excelFileName}.xlsx")
+    excelFileObject.to_html(f"{excelFileName}.html")
+    pdfkit.from_file(f"{excelFileName}.html", f"{excelFileName}.pdf")
 
 
 
