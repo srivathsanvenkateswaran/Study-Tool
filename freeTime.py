@@ -10,8 +10,6 @@ Internet Speed Checker
 def downloadVideoFromYoutube(videoLink, filePath):
     # In the final product, we will also get the resolution as an argument [Input from the user]
     from pytube import YouTube
-
-    filePath = 'D:\\' # For testing reasons, I have hardcoded path too. 
     try:
         youtubeObject = YouTube(videoLink)
         # This will create a Youtube object from the video. 
@@ -30,4 +28,21 @@ def downloadVideoFromYoutube(videoLink, filePath):
     except:
         print("Error")
 
-    
+def downloadPlaylistFromYoutube(playlistLink, filePath):
+    import os
+    # Importing os to create a directory in the name of the playlist 
+    from pytube import Playlist 
+    try:
+        playlistObject = Playlist(playlistLink)
+        # This creates a new playlist object 
+    except:
+        print("Error creating playlist object")
+    filePath = filePath + "\\" + playlistObject.title
+    # This will append the Playlist Title with the pre mentioned file path 
+    os.makedirs(filePath)
+    # This will create A folder with the name of the playlist 
+    print("Downloading ", playlistObject.title)
+    for videoURL in playlistObject.video_urls:
+        downloadVideoFromYoutube(videoURL, filePath)
+        # This will call each downloadVideoFromYoutube function for each video and save it inside the newly created function. 
+    print("Downloaded ", playlistObject.title)   
