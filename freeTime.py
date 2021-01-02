@@ -71,7 +71,6 @@ def checkInternetSpeed():
 
 
 
-checkInternetSpeed()
 
 
 
