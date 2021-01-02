@@ -10,12 +10,11 @@ xlsx to pdf(xlsx)
 unZip(zipFile)
 CompressToZip(folder)
 imageView(img)
+compressImage(img)
 
 csv to xlsx(csv)
 
-
 imageResize(width, height)
-compressImage(img)
 
 sendMail()
 uploadToDrive(file)
