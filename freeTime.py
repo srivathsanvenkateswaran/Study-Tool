@@ -1,10 +1,12 @@
 """
-Games
 Youtube Video Downloader
+Youtube Playlist Downloader 
+Internet Speed Checker
+
+Games
 Recent News [API]
 Youtube Player
 Whatsapp Forward Bot
-Internet Speed Checker
 """
 
 def downloadVideoFromYoutube(videoLink, filePath):
@@ -45,4 +47,31 @@ def downloadPlaylistFromYoutube(playlistLink, filePath):
     for videoURL in playlistObject.video_urls:
         downloadVideoFromYoutube(videoURL, filePath)
         # This will call each downloadVideoFromYoutube function for each video and save it inside the newly created function. 
-    print("Downloaded ", playlistObject.title)   
+    print("Downloaded ", playlistObject.title) 
+
+def checkInternetSpeed():
+    # The Choice is to choose between upload speed, download speed and ping count. We will pass the choice integer based on the button choosed by the user in GUI. 
+    import speedtest 
+    speedtestObject = speedtest.Speedtest()
+    print('Testing your Download Speed....')
+    # Instantiating a speedtest object 
+    downloadInternetSpeed = speedtestObject.upload()
+    downloadInternetSpeed = downloadInternetSpeed / 1000000
+    print('Upload Speed: ', round(downloadInternetSpeed, 2), ' Mb per second')
+    print('Testing your Upload Speed....')
+    uploadInternetSpeed = speedtestObject.download()
+    uploadInternetSpeed = uploadInternetSpeed / 1000000
+    print('Download Speed: ', round(uploadInternetSpeed, 2), ' Mb per second')
+    print('Testing your Ping....')
+    serverNames = []
+    speedtestObject.get_servers(serverNames)
+    print('Your Ping is: ', speedtestObject.results.ping, ' ms')
+
+
+
+
+
+checkInternetSpeed()
+
+
+
