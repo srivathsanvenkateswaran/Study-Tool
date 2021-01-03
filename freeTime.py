@@ -2,9 +2,9 @@
 Youtube Video Downloader
 Youtube Playlist Downloader 
 Internet Speed Checker
+Recent News [API]
 
 Games
-Recent News [API]
 Youtube Player
 Whatsapp Forward Bot
 """
@@ -66,6 +66,38 @@ def checkInternetSpeed():
     serverNames = []
     speedtestObject.get_servers(serverNames)
     print('Your Ping is: ', speedtestObject.results.ping, ' ms')
+
+def getNews(apiToken):
+    import requests
+    # Importing request module 
+    newsAPIUrl = f'https://gnews.io/api/v4/search?q=example&lang=en&country=in&max=10&token={apiToken}'
+    # this is the url for API request 
+    response = requests.get(newsAPIUrl)
+    # This will get the response from the API 
+    if(response.status_code == 200):
+        # The script will parse the JSON if the response code is 200. 
+        jsonResponse = response.json()
+        # Get the json format from the response 
+        jsobArticlesList = jsonResponse['articles']
+        # Fetch the list of articles from the jsonResponse
+        articlesList = []
+        # creating an empty list which we will use to add all the articles 
+        for jsonArticle in jsobArticlesList:
+            articleObject = [
+                jsonArticle['title'],
+                jsonArticle['description'],
+                jsonArticle['url']
+            ]
+            #Here, Each article has Title, Description and URL in 0, 1, 2 index respectively. 
+            articlesList.append(articleObject)
+            # Finally, we add the articleObject to the articlesList.
+    else:
+        print("Error: Response Code : ", response.status_code)
+    return articlesList
+
+    
+
+
 
 
 
