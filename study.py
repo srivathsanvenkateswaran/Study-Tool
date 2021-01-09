@@ -19,12 +19,19 @@ def playVideosInFolder(filePath):
     import time
     from moviepy.editor import VideoFileClip
     os.chdir(filePath)
+    # Changing into the directory which contains all the videos. 
     dir = os.listdir(os.getcwd())
+    # getting the names of all the videos present inside the directory 
     dir.sort()
+    # sorting the videos according to their names. [OPTIONAL]
     for video in dir:
+        # Loop through each video inside the directory 
         videoDuration = VideoFileClip(video).duration
+        # Getting the duration of the current video because it will be helpful to halt the code till the video finishes playing 
         videoDuration = int(videoDuration) + 1
+        # Adjusting the value obtained after converting float into int
         print(f'Going to play {video} of duration {videoDuration}')
+        # Printing the name of the video which is about to play [For Testing purpose]
         vlc_instance = vlc.Instance()
         # creating a vlc instance
         player = vlc_instance.media_player_new()
@@ -36,7 +43,7 @@ def playVideosInFolder(filePath):
         player.play()
         # play the video
         time.sleep(videoDuration)
-        # wait time
+        # wait time for the video to finish playing
         print(f'Played {video}')
         # print in terminal about the video played. [Testing]
 
@@ -57,10 +64,24 @@ def studyWithMeVideos(user):
     playVideosInFolder(filePath+'/StudyWithMeVideos')
     #This will play the given file
 
-
-
 def streamStudyWithMeVideos():
-    pass
+    import os
+    from pytube import Playlist 
+    import freeTime
+    # importing required modules 
+    studyWithMePlaylistLink = 'https://www.youtube.com/playlist?list=PL0TgZHwr16z_x7loDhs3vzzgo_j-6FetI'
+    # StudyWithMe videos playlist link 
+    try:
+        playlistObject = Playlist(studyWithMePlaylistLink)
+        # This creates a new playlist object 
+    except:
+        print("Error creating playlist object")
+    print("Starting to Play videos in ", playlistObject.title)
+    for videoURL in playlistObject.video_urls:
+        freeTime.streamYoutubeVideos(videoURL)
+        # This will call streamYoutubeVideos function for each video and save it streamed using VLC Media Player. 
+    
+
 
 
 

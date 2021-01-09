@@ -48,7 +48,7 @@ def downloadPlaylistFromYoutube(playlistLink, user):
     print("Downloading ", playlistObject.title)
     for videoURL in playlistObject.video_urls:
         downloadVideoFromYoutube(videoURL, filePath)
-        # This will call each downloadVideoFromYoutube function for each video and save it inside the newly created function. 
+        # This will call downloadVideoFromYoutube function for each video and save it inside the newly created function. 
     print("Downloaded ", playlistObject.title) 
 
 def checkInternetSpeed():
