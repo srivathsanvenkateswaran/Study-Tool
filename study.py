@@ -6,34 +6,40 @@ Study Music
 Countdown timer
 Google Search
 '''
-studyWithMeVideoFlag = 0
 
 def studyMusic():
     pass
 
 #To Do Task code link available in Discord Server
 
-def playVideo(filePath):
+def playVideosInFolder(filePath):
     # Needs improvement
     import os
-    import cv2
-    import numpy
-    dir = os.listdir(filePath)
-    for video in dir:
-        captureObject = cv2.VideoCapture(filePath+'\\'+video)
-        if(captureObject.isOpened() == False):
-            print('Error opening video')
-        
-        while(captureObject.isOpened()):
-            ret, frame = captureObject.read()
-            if(ret == True):
-                cv2.imshow('Frame', frame)
-                if(cv2.waitKey(25) & 0xFF == ord('q')):
-                    break
-            else:
-                break
-        captureObject.release()
-        cv2.destroyAllWindows()
+    import vlc
+    import time
+    os.chdir(filePath)
+    dir = os.listdir(os.getcwd())
+    dir.sort()
+    video = dir[0]
+    # creating a vlc instance
+    vlc_instance = vlc.Instance()
+    # creating a media player
+    player = vlc_instance.media_player_new()
+    # creating a media
+    media = vlc_instance.media_new(video)
+    # setting media to the player
+    player.set_media(media)
+    # play the video
+    player.play()
+    # wait time
+    time.sleep(50)
+    # getting the duration of the video
+    duration = player.get_length()
+    # printing the duration of the video
+    print("Duration : " + str(duration))
+
+        # PROBLEM:   The video plays but there is no audio and also we can't control the video [Pause, Play etc]. 
+
 
 def studyWithMeVideos():
     import freeTime
@@ -54,8 +60,8 @@ def studyWithMeVideos():
 
 
 
-studyWithMeVideos()  
-
+# studyWithMeVideos()  
+playVideosInFolder('/home/srivathsan/Videos')
         
 
 

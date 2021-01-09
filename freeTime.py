@@ -97,6 +97,33 @@ def getNews(apiToken):
         print("Error: Response Code : ", response.status_code)
     return articlesList
 
+def streamYoutubeVideos(videoURL):
+    import pafy
+    import vlc
+    import time
+    # Importing the required modules 
+    video = pafy.new(videoURL)
+    # creating a pafy video object 
+    videoDuration = video.length
+    # get the video duration 
+    best = video.getbest()
+    # get the best version of the video. 
+    playurl = best.url
+    # get the url of the video 
+    Instance = vlc.Instance()
+    # create a vlc instance
+    player = Instance.media_player_new()
+    # create a new media player 
+    Media = Instance.media_new(playurl)
+    # create a new Media Instance 
+    Media.get_mrl()
+    # Store the MRL inside Media Object 
+    player.set_media(Media)
+    # Set the Media to the media player 
+    player.play()
+    # Play the video 
+    time.sleep(videoDuration)
+    # wait till the video ends 
 
 
 
