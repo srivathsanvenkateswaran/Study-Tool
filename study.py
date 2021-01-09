@@ -1,6 +1,6 @@
 '''
 To Do Task
-Study with Me Videos [Need to improve playVideo]
+Study with Me Videos
 
 Study Music
 Countdown timer
@@ -17,34 +17,33 @@ def playVideosInFolder(filePath):
     import os
     import vlc
     import time
+    from moviepy.editor import VideoFileClip
     os.chdir(filePath)
     dir = os.listdir(os.getcwd())
     dir.sort()
-    video = dir[0]
-    # creating a vlc instance
-    vlc_instance = vlc.Instance()
-    # creating a media player
-    player = vlc_instance.media_player_new()
-    # creating a media
-    media = vlc_instance.media_new(video)
-    # setting media to the player
-    player.set_media(media)
-    # play the video
-    player.play()
-    # wait time
-    time.sleep(50)
-    # getting the duration of the video
-    duration = player.get_length()
-    # printing the duration of the video
-    print("Duration : " + str(duration))
+    for video in dir:
+        videoDuration = VideoFileClip(video).duration
+        videoDuration = int(videoDuration) + 1
+        print(f'Going to play {video} of duration {videoDuration}')
+        vlc_instance = vlc.Instance()
+        # creating a vlc instance
+        player = vlc_instance.media_player_new()
+        # creating a media player
+        media = vlc_instance.media_new(video)
+        # creating a media
+        player.set_media(media)
+        # setting media to the player
+        player.play()
+        # play the video
+        time.sleep(videoDuration)
+        # wait time
+        print(f'Played {video}')
+        # print in terminal about the video played. [Testing]
 
-        # PROBLEM:   The video plays but there is no audio and also we can't control the video [Pause, Play etc]. 
-
-
-def studyWithMeVideos():
+def studyWithMeVideos(user):
     import freeTime
     import os
-    filePath = '/home/srivathsan/Videos'
+    filePath = f'/home/{user}/Videos'
     os.chdir(filePath)
     # this is the path where the study with me videos will be saved. 
     try:
@@ -55,14 +54,13 @@ def studyWithMeVideos():
         # We will update the string with a playlist which contains a lot of Study With Me videos. 
         freeTime.downloadPlaylistFromYoutube(studyWithMePlaylistLink, 'srivathsan')
         # This will download the Playlist under the specified path. 
-    playVideo(filePath)
+    playVideosInFolder(filePath+'/StudyWithMeVideos')
     #This will play the given file
 
 
 
-# studyWithMeVideos()  
-playVideosInFolder('/home/srivathsan/Videos')
-        
+def streamStudyWithMeVideos():
+    pass
 
 
 

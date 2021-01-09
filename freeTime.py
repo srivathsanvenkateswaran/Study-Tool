@@ -3,9 +3,9 @@ Youtube Video Downloader
 Youtube Playlist Downloader 
 Internet Speed Checker
 Recent News [API]
+Youtube Player
 
 Games
-Youtube Player
 Whatsapp Forward Bot
 """
 
