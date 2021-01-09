@@ -35,25 +35,27 @@ def playVideo(filePath):
         captureObject.release()
         cv2.destroyAllWindows()
 
-
-
 def studyWithMeVideos():
     import freeTime
     import os
-    filePath = 'D:\\StudyWithMeVideos'
+    filePath = '/home/srivathsan/Videos'
+    os.chdir(filePath)
     # this is the path where the study with me videos will be saved. 
-    dir = os.listdir(filePath)
-    if(len(dir)==0):
+    try:
+        dir = os.listdir(filePath + '/StudyWithMeVideos')
+        # This will throw an error when there is not directory. If there is no directory, then there will be no videos and hence, we will download the videos. [The Download function will create a directory in the playlist name]
+    except FileNotFoundError:
         studyWithMePlaylistLink = 'https://www.youtube.com/playlist?list=PL0TgZHwr16z_x7loDhs3vzzgo_j-6FetI'
         # We will update the string with a playlist which contains a lot of Study With Me videos. 
-        freeTime.downloadPlaylistFromYoutube(studyWithMePlaylistLink, 'D:\\')
+        freeTime.downloadPlaylistFromYoutube(studyWithMePlaylistLink, 'srivathsan')
         # This will download the Playlist under the specified path. 
     playVideo(filePath)
     #This will play the given file
 
 
 
-    
+studyWithMeVideos()  
+
         
 
 

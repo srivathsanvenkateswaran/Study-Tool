@@ -30,16 +30,18 @@ def downloadVideoFromYoutube(videoLink, filePath):
     except:
         print("Error")
 
-def downloadPlaylistFromYoutube(playlistLink, filePath):
+def downloadPlaylistFromYoutube(playlistLink, user):
     import os
     # Importing os to create a directory in the name of the playlist 
     from pytube import Playlist 
+    filePath = '/home/' + user + '/Videos'
+    os.chdir(filePath)
     try:
         playlistObject = Playlist(playlistLink)
         # This creates a new playlist object 
     except:
         print("Error creating playlist object")
-    filePath = filePath + "\\" + playlistObject.title
+    filePath = filePath + "/" + playlistObject.title
     # This will append the Playlist Title with the pre mentioned file path 
     os.makedirs(filePath)
     # This will create A folder with the name of the playlist 
@@ -94,11 +96,6 @@ def getNews(apiToken):
     else:
         print("Error: Response Code : ", response.status_code)
     return articlesList
-
-    
-
-
-
 
 
 
