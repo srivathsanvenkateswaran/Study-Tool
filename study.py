@@ -1,14 +1,40 @@
 '''
 To Do Task
 Study with Me Videos
-
 Study Music
+
 Countdown timer
 Google Search
 '''
 
 def studyMusic():
-    pass
+    import pafy
+    import vlc
+    import time
+    # Importing required modules 
+    url = 'https://www.youtube.com/watch?v=VIvRmTRtAxQ'
+    # Youtube URL 
+    audio = pafy.new(url)
+    # Create a new Audio Object 
+    best = audio.getbestaudio()
+    # get the best version of Audio from the audio object 
+    playurl = best.url
+    # Get the URL from the best stream 
+    Instance = vlc.Instance()
+    # creating a vlc instance 
+    player = Instance.media_player_new()
+    # Creating a new Media Player 
+    Media = Instance.media_new(playurl)
+    # Creating a new media Instance 
+    Media.get_mrl()
+    # Store the MRL inside the Media Instance 
+    player.set_media(Media)
+    # Set the Media inside the Media Player 
+    player.play()
+    # Play the Media Player 
+    # player.set_pause(1)   [WE CAN MAKE A PAUSE BUTTON AND THEN PAUSE THE AUDIO PLAYBACK USING THIS COMMAND]
+    time.sleep(audio.length + 1)
+    # waiting till the audio finishes playing. 
 
 #To Do Task code link available in Discord Server
 
@@ -81,7 +107,6 @@ def streamStudyWithMeVideos():
         freeTime.streamYoutubeVideos(videoURL)
         # This will call streamYoutubeVideos function for each video and save it streamed using VLC Media Player. 
     
-
 
 
 
