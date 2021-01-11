@@ -57,11 +57,11 @@ def checkInternetSpeed():
     speedtestObject = speedtest.Speedtest()
     print('Testing your Download Speed....')
     # Instantiating a speedtest object 
-    downloadInternetSpeed = speedtestObject.upload()
+    downloadInternetSpeed = speedtestObject.download()
     downloadInternetSpeed = downloadInternetSpeed / 1000000
     print('Upload Speed: ', round(downloadInternetSpeed, 2), ' Mb per second')
     print('Testing your Upload Speed....')
-    uploadInternetSpeed = speedtestObject.download()
+    uploadInternetSpeed = speedtestObject.upload()
     uploadInternetSpeed = uploadInternetSpeed / 1000000
     print('Download Speed: ', round(uploadInternetSpeed, 2), ' Mb per second')
     print('Testing your Ping....')
@@ -124,9 +124,6 @@ def streamYoutubeVideos(videoURL):
     # Play the video 
     time.sleep(videoDuration)
     # wait till the video ends 
-
-
-
 
 
 
