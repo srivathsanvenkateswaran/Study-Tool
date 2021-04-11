@@ -57,3 +57,4 @@ def sortAndstoreFiles(path):
 			shutil.move(path+'/'+file_, path+'/'+ext+'/'+file_)
 
 
+#clipboard gui tool
