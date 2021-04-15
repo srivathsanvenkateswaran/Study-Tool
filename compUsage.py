@@ -1,11 +1,14 @@
 '''
 Recycle bin cleaner
 sort and store the files with same extension
-Translator
 clipboard manager
 sticky notes
 URL shortener and unshortener
 
+pip install trash-cli
+pip install winshell
+pip install contextlib
+pip install urllib3
 
 '''
 
@@ -22,7 +25,6 @@ def clearRecycleBin():
 		winshell.recycle_bin().empty(confirm=False, show_progress=False, sound=False)
 	else:
 		pass
-	
 
 def sortAndstoreFiles(path):
 	import os
@@ -57,4 +59,21 @@ def sortAndstoreFiles(path):
 			shutil.move(path+'/'+file_, path+'/'+ext+'/'+file_)
 
 
-#clipboard gui tool
+def shorten(url):
+	import contextlib
+	from urllib.parse import urlencode
+	from urllib.request import urlopen
+  	
+  	#shortening url with tinyurl api
+	request_url = ('http://tinyurl.com/api-create.php?' + urlencode({'url':url}))
+  	with contextlib.closing(urlopen(request_url)) as response:
+	return response.read().decode('utf-8 ')
+
+def unshorten(url):
+	import requests
+
+	#returns the unshortened url
+    return requests.head(url, allow_redirects=True).url
+
+
+
