@@ -2,7 +2,6 @@
 Recycle bin cleaner
 sort and store the files with same extension
 clipboard manager
-sticky notes
 URL shortener and unshortener
 
 pip install trash-cli
