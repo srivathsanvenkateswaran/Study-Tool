@@ -7,6 +7,7 @@ label for assignments
 scientific calculator
 '''
 
+#Task notifier/alarm
 def TaskNotifier(site, time, task):
 	import time
 	import webbrowser
@@ -24,6 +25,7 @@ def TaskNotifier(site, time, task):
 
     #popup will open with task given at that time
 
+#function to crop images
 def cropper(path):
 	import cv2
 	import os
@@ -97,4 +99,35 @@ def cropper(path):
 
 	cv2.destroyAllWindows()
 
+
+#converting cropped images to pdf
+def ConvertToPdf(filename):
+	from PIL import Image
+	import os
+
+	'''
+	im = Image.open(file)
+	im1 = im.convert('RGB')
+
+	open other images and convert and append in list using loop
+
+	imagelist = [im2,im3,im4]
+	im1.save('filename.pdf',save_all=True, append_images=imagelist)
+
+	'''
+
+	image1 = Image.open(os.getcwd+"//cropped//1.jpg")
+	im1 = image1.convert('RGB')
+
+	arr = os.listdir(os.getcwd + "//cropped")
+	arr.pop(0)
+
+	imagelist = []
+
+	for i in arr:
+		image = Image.open(os.getcwd+"//cropped//{}".format(i))
+		im = image.convert('RGB')
+		imagelist.append(im)
+
+	im1.save('{}.pdf'.format(filename), save_all=True, append_images=imagelist)
 
