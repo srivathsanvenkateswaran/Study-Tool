@@ -25,7 +25,10 @@ try:
 except:
  print("unable to install winshell module, try to fix that")
 
-
+try:
+ pip install tkinter
+except:
+ printf("unable to install tkinter module, try to fix that")
 
 
 
