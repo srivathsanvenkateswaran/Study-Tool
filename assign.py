@@ -3,8 +3,11 @@ Task notifier and website alarm
 crop images and convert to pdf
 screen recorder
 image to text
-label for assignments
-scientific calculator
+
+next update:
+label for assignment
+scientific calc
+
 '''
 
 #Task notifier/alarm
