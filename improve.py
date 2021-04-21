@@ -1,6 +1,5 @@
 '''
 audiobook
-type speed checker
 book recommender
 website blocker
 Eye protection mode
