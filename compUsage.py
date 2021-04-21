@@ -1,8 +1,10 @@
 '''
 Recycle bin cleaner
 sort and store the files with same extension
-clipboard manager
 URL shortener and unshortener
+
+next update:
+clipboard manager
 
 pip install trash-cli
 pip install winshell
