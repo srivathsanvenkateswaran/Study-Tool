@@ -3,7 +3,9 @@ To Do Task
 Study with Me Videos
 Study Music
 
-Countdown timer
+countdown timer
+
+next update:
 Google Search
 '''
 
@@ -106,13 +108,3 @@ def streamStudyWithMeVideos():
     for videoURL in playlistObject.video_urls:
         freeTime.streamYoutubeVideos(videoURL)
         # This will call streamYoutubeVideos function for each video and save it streamed using VLC Media Player. 
-    
-
-
-
-
-
-
-
-
-

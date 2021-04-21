@@ -12,10 +12,10 @@ CompressToZip(folder)
 imageView(img)
 compressImage(img)
 
+
+next update:
 csv to xlsx(csv)
-
 imageResize(width, height)
-
 sendMail()
 uploadToDrive(file)
 '''
