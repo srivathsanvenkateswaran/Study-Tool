@@ -51,7 +51,7 @@ def sortAndstoreFiles(path):
 		# This will move the file to the directory
 		# where the name 'ext' already exists
 		if os.path.exists(path+'/'+ext):
-		shutil.move(path+'/'+file_, path+'/'+ext+'/'+file_)
+			shutil.move(path+'/'+file_, path+'/'+ext+'/'+file_)
 
 		# This will create a new directory,
 		# if the directory does not already exist
@@ -67,13 +67,13 @@ def shorten(url):
 
   	#shortening url with tinyurl api
 	request_url = ('http://tinyurl.com/api-create.php?' + urlencode({'url':url}))
-  	with contextlib.closing(urlopen(request_url)) as response:
-	return response.read().decode('utf-8 ')
+	with contextlib.closing(urlopen(request_url)) as response:
+		return response.read().decode('utf-8 ')
 
 def unshorten(url):
 	import requests
 
 	#returns the unshortened url
-    return requests.head(url, allow_redirects=True).url
+	return requests.head(url, allow_redirects=True).url
 
 

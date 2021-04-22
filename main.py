@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
-import tkinter
+from tkinter import *
+from PIL import ImageTk, Image
+from time import sleep
 
 #user defined modules
 
@@ -84,4 +86,20 @@ functions of study.py
 '''
 
 #################################################################
+
+#main program
+
+root = Tk()
+
+root.title("Study-Tool")
+root.geometry("1000x620")
+root.configure(bg="light blue")
+
+
+
+
+root.mainloop()
+
+
+
 

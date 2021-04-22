@@ -16,9 +16,9 @@ def SafeEyes(command):
 		os.system('safeeyes &')
 	if command == 'disable':
 		os.system('safeeyes -d')
-	if command == 'settings'
+	if command == 'settings':
 		os.system('safeeyes -s')
-	if commmand == 'status'
+	if commmand == 'status':
 		os.system('safeeyes --status')
 
 

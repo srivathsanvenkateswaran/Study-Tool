@@ -19,8 +19,8 @@ def TaskNotifier(site, time, task):
 	Actual_Time = time.strftime("%I:%M:%S")
 
 	while (Actual_Time != Set_Alarm):
-        Actual_Time = time.strftime("%I:%M:%S")
-        time.sleep(1)
+		Actual_Time = time.strftime("%I:%M:%S")
+		time.sleep(1)
 
 	if (Actual_Time == Set_Alarm):
 		popup(task)
