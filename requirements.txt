@@ -30,5 +30,92 @@ try:
 except:
  printf("unable to install tkinter module, try to fix that")
 
+try:
+ pip install pytube
+except:
+ printf("unable to install pytube module, try to fix that")
 
+try:
+ pip install speedtest
+except:
+ printf("unable to install speedtest module, try to fix that")
 
+try:
+ pip install requests
+except:
+ printf("unable to install requests module, try to fix that")
+
+try:
+ pip install python-vlc
+except:
+ printf("unable to install python-vlc module, try to fix that")
+
+try:
+ pip install pafy
+except:
+ printf("unable to install pafy module, try to fix that")
+
+try:
+ pip install curses
+except:
+ printf("unable to install curses module, try to fix that")
+
+try:
+ pip install fpdf
+except:
+ printf("unable to install fpdf module, try to fix that")
+
+try:
+ pip install docx2pdf
+except:
+ printf("unable to install docx2pdf module, try to fix that")
+
+try:
+ pip install docx2txt
+except:
+ printf("unable to install docx2txt module, try to fix that")
+
+try:
+ pip install pdf2docx
+except:
+ printf("unable to install pdf2docx module, try to fix that")
+
+try:
+ pip install PyPDF2
+except:
+ printf("unable to install PyPDF2 module, try to fix that")
+
+try:
+ pip install comtypes
+except:
+ printf("unable to install comtypes module, try to fix that")
+
+try:
+ pip install openpyxl
+except:
+ printf("unable to install openpyxl module, try to fix that")
+
+try:
+ pip install pandas
+except:
+ printf("unable to install pandas module, try to fix that")
+
+try:
+ pip install pdfkit
+except:
+ printf("unable to install pdfkit module, try to fix that")
+
+try:
+ pip install zipfile
+except:
+ printf("unable to install zipfile module, try to fix that")
+
+try:
+ pip install Pillow
+except:
+ printf("unable to install Pillow module, try to fix that")
+
+try:
+ pip install moviepy
+except:
+ printf("unable to install moviepy module, try to fix that")
