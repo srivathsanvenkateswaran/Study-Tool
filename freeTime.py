@@ -5,6 +5,7 @@ Internet Speed Checker
 Recent News [API]
 Youtube Player
 
+next update:
 Games
 Whatsapp Forward Bot
 """

@@ -1,0 +1,34 @@
+#add al the modules name with try.. exception..
+
+#srivathsan
+#add yours here
+
+
+#try:
+# pip install {module name}
+#except:
+# print("unable to install {module name} module, try to fix that")
+
+
+
+
+
+#gokul
+
+try:
+ pip install trash-cli
+except:
+ print("unable to install trash-cli module, try to fix that")
+
+try:
+ pip install winshell
+except:
+ print("unable to install winshell module, try to fix that")
+
+try:
+ pip install tkinter
+except:
+ printf("unable to install tkinter module, try to fix that")
+
+
+

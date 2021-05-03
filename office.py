@@ -12,15 +12,15 @@ CompressToZip(folder)
 imageView(img)
 compressImage(img)
 
+
+next update:
 csv to xlsx(csv)
-
 imageResize(width, height)
-
 sendMail()
 uploadToDrive(file)
 '''
 
-def createPDF(pdfFileName):
+def createPDF(pdfFileName, textToBeEntered):
     # pdfFileName is the name in which the user would like to have the PDF file created. 
     from fpdf import FPDF
     # import the FPDF function 
@@ -30,8 +30,6 @@ def createPDF(pdfFileName):
     # add a page to the PDF 
     pdf.set_font('Arial', size = 15)
     # setting font and font size 
-    textToBeEntered = input("Enter the Text: ") 
-    # This is the text which we would get from the GUI box. 
     pdf.cell(200, 10, txt = textToBeEntered, align = 'C')
     # Add the text to the PDF by adding the cell. 
     pdf.output(f"{pdfFileName}.pdf")
